@@ -1,0 +1,40 @@
+/*
+ * This file contains constants, enums and similar used throughout the project.
+ * It is here most parameters are changed when changed behaviour of the robot is wanted.
+ */
+
+/*
+ * Defines
+ */
+
+//Serial defines
+#define SERIAL_UPDATE_FREQUENCY_MS 50
+#define MAX_ALLOWED_MISSED_SERIAL_TICKS 8 //determined only by testing, 5 is not enough
+
+//Motor constants
+#define LOCALIZATION_CIRCLE_ROTATION_OFFSET 90.0
+
+#define ROTATING_LEFT_MOMENTUM_OFFSET 13
+#define ROTATING_RIGHT_MOMENTUM_OFFSET 13
+
+#define AUTONOMOUS_LOCATION_TICK_TIME_MS 1000
+
+#define MILLIMETER_DISTANCE_WHEN_FREE_ROLLING_AFTER_FULL_SPEED 45
+
+#define MANUAL_MOTOR_SPEED_HIGH_PERCENTAGE 100
+#define MANUAL_MOTOR_SPEED_MEDIUM_PERCENTAGE 60
+#define MANUAL_MOTOR_SPEED_LOW_PERCENTAGE 40
+
+#define PERCENTAGE_TO_PWM_FACTOR 2.55
+#define MOTOR_DEVIATION_FACTOR 0.95
+#define DEGREES_TO_RADIAN_FACTOR M_PI/180
+
+#define MILLIMETER_PER_ENCOER_PULSE 0.353
+#define ENCODER_PULSE_PER_MILLIMETER 2.832
+#define ENCODER_LIBRARY_PWM_OFFSET_VALUE 2
+
+#define MAX_MOTOR_SPEED 255
+#define HALF_MOTOR_SPEED 255*0.5
+
+//Temperature
+#define NUMBER_OF_TICKS_BETWEEN_TEMPERATURE_TRANSMISSION 20

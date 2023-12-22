@@ -1,0 +1,54 @@
+import socket
+
+# MAIN
+MAIN_THREAD_SLEEP_TIME_SECONDS = (1/60)
+
+# CAMERA
+RESOLUTION_VGA = (640, 480)
+FPS = 3
+CAMERA_THREAD_SLEEP_TIME_IN_SECONDS = (1/FPS) # if we use 30fps, checking two times should result in no real latency
+CAMERA_DATA_INTERVAL_MAX_TIME_IN_SECONDS = 10
+#default values for camera settings
+CAMERA_FOCAL_SETTING =  718.8560
+CAMERA_PRINCIPAL_POINT_SETTING = (607.1928, 185.2157)
+
+# SERIAL
+RPI_USB_PORT = '/dev/ttyUSB0'
+WIN_USB_PORT = 'COM3'
+SERIAL_THREAD_SLEEP_TIME_IN_SECONDS = (1/20)
+#COMMANDS
+STATE_COMMANDS = ['r', 'c'] # R - Remain, C - Manual Control
+MOTOR_SPEED_COMMANDS = ['h', 'm', 'l'] # H - High, M - Medium, L - Low
+MOTOR_DIRECTION_COMMANDS = ['w', 'd', 's', 'a'] # 1 - Forward, 2 - Right, 3 - Back, 4 - Left
+TEMPERATURE_COMMAND = 't:'
+ALL_COMMANDS = [STATE_COMMANDS, MOTOR_SPEED_COMMANDS, MOTOR_DIRECTION_COMMANDS]
+
+# MQTT
+USE_LOCAL_MOSQUITTO_SERVER = False
+#HOSTNAME = socket.gethostname()
+#IP_ADDRESS  = socket.gethostbyname(HOSTNAME)
+#BROKER_ADRESS = "localhost"
+#BROKER_ADRESS = "192.168.56.1"
+BROKER_ADRESS = "test.mosquitto.org"
+BROKER_PORT = 1883
+RPI_CLIENT_ID = "RPI_FLAMEWATCHER_1"
+CONTROLLER_CLIENT_ID = "RPI_FLAMEWATCHER_1_CONTROLLER"
+MQTT_THREAD_SLEEP_TIME_IN_SECONDS = (1/60)
+TEMPERATURE_UPDATE_INTERVAL_SECONDS = 5
+#TOPICS
+TOPIC_ROBOT_STATE = "robot/state"
+TOPIC_MOTOR_CONTROL_SPEED = "motor-control/speed"
+TOPIC_MOTOR_CONTROL_DIRECTION = "motor-control/direction"
+TOPIC_CAMERA_DATA = "camera/data"
+#TOPIC_SLAM_DATA = "slam/data" # Not used if SLAM is processed on the frame being published instead - can be used if SLAM is to be processed on the Pi
+TOPIC_TEMPERATURE_DATA = "temperature/data"
+
+#PUBLISHER
+PUBLISHER_THREAD_SLEEP_TIME_IN_SECONDS = (1/10)
+
+#SLAM
+RUN_SLAM_ON_PI = False
+SLAM_IMAGE_SCALE = 1# <--- window scaling for performance (0.0 - 1.0)
+SLAM_MATCHING_RATIO_THRESHOLD = 0.5# <--- key point match filtering
+SLAM_ADJUSTED_WIDTH = int(RESOLUTION_VGA[0] * SLAM_IMAGE_SCALE)
+SLAM_ADJUSTED_HEIGHT = int(RESOLUTION_VGA[1] * SLAM_IMAGE_SCALE)
